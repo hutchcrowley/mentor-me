@@ -16,3 +16,49 @@
 
 ## Stretch: Allow photos or files to be attached to a posted question. Allow an entrepreneur to request a call with a mentor for a fee.
 
+```
+    **CRUD === get/post/put/delete
+    -------------------------------------------------
+
+ '/register' => register the user,
+    ...{
+        firstname:'',   req
+        lastname:'',    req
+        email:'',       req
+        password:''     req
+    }
+
+    -------------------------------------------------
+
+  '/login' => login to the api, AUTH ==> token 
+        req.body
+    ...{
+        email:''        req
+        password:''     req
+    }
+
+    -------------------------------------------------
+
+    '/api/questions'
+            or              => the questions list CRUD
+    '/api/questions/:id'
+        req.body
+        {
+            topic_id:'',    req    
+            content:'',     req
+            user_id:'',     req
+            imageUrl:''     opt
+        }
+    -------------------------------------------------
+
+    '/api/users'
+        or              => the users list CRUD
+    '/api/users/:id'
+     ...{
+        firstname:'',   req on put
+        lastname:'',    req on put
+        email:'',       req on put
+        password:''     req on put
+    }
+
+```
