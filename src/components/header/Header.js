@@ -1,7 +1,7 @@
-import React from 'react';
-import Logo from '../../img/Logo.svg';
-import styled from 'styled-components';
-
+import React from "react";
+import Logo from "../../img/Logo.svg";
+import styled from "styled-components";
+import { Link } from "react-router-dom";
 const Header = () => {
   const Header1 = styled.section`
     border-bottom: solid 1px #979797;
@@ -10,7 +10,9 @@ const Header = () => {
 
   return (
     <Header1>
-      <img src={Logo}></img>
+      <Link to="/">
+        <img src={Logo}></img>
+      </Link>
     </Header1>
   );
 };
