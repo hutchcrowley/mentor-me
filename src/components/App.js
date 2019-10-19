@@ -1,10 +1,19 @@
-import React from 'react';
-import Header from './header/Header';
-import '../styles/Styles.scss';
+import React from "react";
+import Header from "./header/Header";
+import "../styles/Styles.scss";
+import Landing from "./body/Landing";
+import RegisterUser from "./Register/RegisterUser";
+import { Route } from "react-router-dom";
 
 const App = () => {
-  return <Header />;
+  return (
+    <div>
+      <Header />
+
+      <Route exact path="/" component={Landing} />
+      <Route path="/signup" component={RegisterUser} />
+    </div>
+  );
 };
 
 export default App;
-
