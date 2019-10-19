@@ -5,6 +5,7 @@ import {
 } from '../actions'
 
 const inital = {
+    payload: {},
     isRegistered: false
 }
 export const registerReducer = (state = inital, action) => {

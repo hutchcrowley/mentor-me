@@ -12,6 +12,7 @@
 [] 5. Ability for anyone to easily search / find posted questions
 [] 6. Ability to respond to a posted question via message
 [] 7. Use a notification API like Twilio (https://www.twilio.com/) or Growl (http://growl.info/) to allow volunteers to be notified when a question is posted in their business type.
+
 ```
 
 ## Stretch: Allow photos or files to be attached to a posted question. Allow an entrepreneur to request a call with a mentor for a fee.
@@ -62,3 +63,5 @@
     }
 
 ```
+
+
