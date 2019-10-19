@@ -35,3 +35,34 @@
 //     }
 // } -- AUSTIN
 
+import {FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILED} from '../actions';
+
+const stat = {
+    data: [],
+    isFetching: false,
+    err: ''
+}
+
+export const questionsReducer = (state={stat}, action) => {
+    switch(action.type) {
+        case FETCH_DATA_START:
+            return{
+                ...state,
+                isFetching: true
+            }
+        case FETCH_DATA_SUCCESS:
+            return{
+                ...state,
+                isFetching: false,
+                data: action.payload
+            }
+        case FETCH_DATA_FAILED:
+            return{
+                ...state,
+                isFetching: false,
+                err: action.payload
+            }
+        default:
+            return state
+    }
+}

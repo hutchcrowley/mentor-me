@@ -16,6 +16,10 @@ export const REGISTER_FAILED = 'REGISTER_FAILED'
 //-- AUSTIN
 //#endregion 
 
+export const FETCH_DATA_START = 'FETCH_DATA_START'
+export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
+export const FETCH_DATA_FAILED = 'FETCH_DATA_FAILED'
+
 
 export const login = (creds) => dispatch => {
     dispatch({ type: LOG_IN_START })
@@ -55,5 +59,15 @@ export const register = (payload) => dispatch => {
 //         .then(res => {
 //             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
 //         })
-//         .catch(err => dispatch({type:FETCH_DATA_FAILED. payload:err})
+//         .catch(err => dispatch({type:FETCH_DATA_FAILED, payload:err})
 // }   AUSTIN -- 
+
+export const getQuestions = () => dispatch => {
+    dispatch({ type: FETCH_DATA_START})
+    axiosWithAuth()
+        .get('/api/questions')
+        .then(res => {
+            dispatch({type: FETCH_DATA_SUCCESS, payload: res.data})
+        })
+        .catch(err => dispatch({type:FETCH_DATA_FAILED, payload: err}))
+}
