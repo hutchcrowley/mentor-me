@@ -1,11 +1,10 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Landing() {
   return (
     <div className="flex-column flex-bottom">
-       
-      <Link className="button" to="">
+      <Link className="button" to="/signin">
         Sign In
       </Link>
       <Link className="button" to="/signup">
