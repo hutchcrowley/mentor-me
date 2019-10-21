@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom';
 
 export default function Landing() {
   return (
-    <div>
-      <h1>This is the landing page</h1>
-      <Link className="button" to="">
+    <div className="flex-column flex-bottom">
+      <Link className="button" to="/signin">
         Sign In
       </Link>
       <Link className="button" to="/signup">
