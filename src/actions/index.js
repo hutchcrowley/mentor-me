@@ -1,5 +1,5 @@
 import axios from 'axios'
-import axiosWithAuth from '../utils/axiosWithAuth'
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 //#region MACROS
 export const LOG_IN_START = 'LOG_IN_START'
