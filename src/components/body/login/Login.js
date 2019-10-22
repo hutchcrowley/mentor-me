@@ -29,6 +29,7 @@ const Login = props => {
           onChange={handleClick}
         />
         <input
+        className="input"
           type="password"
           name="password"
           placeholder="Password"
