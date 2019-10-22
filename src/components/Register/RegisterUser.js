@@ -36,9 +36,10 @@ const RegisterUser = props => {
   };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
 
         <input
+        className="input"
           type="text"
           name="firstName"
           placeholder="First Name"
@@ -48,6 +49,7 @@ const RegisterUser = props => {
         {/* {console.log(props.reg_user)} */}
 
         <input
+        className="input"
           type="text"
           name="lastName"
           placeholder="Last Name"
@@ -56,6 +58,7 @@ const RegisterUser = props => {
         />
 
         <input
+        className="input"
           type="email"
           name="email"
           placeholder="Email"
@@ -64,13 +67,14 @@ const RegisterUser = props => {
         />
 
         <input
+        className="input"
           type="password"
           name="password"
           placeholder="Password"
           value={payload.password}
           onChange={handleChange}
         />
-        <label htmlFor="isMentor">I am registering as mentor</label>
+        <label className="label" htmlFor="isMentor">I am registering as mentor</label>
 
         <input type="checkbox" name="isMentor" onChange={handleMentor}></input>
         <button type="submit" />

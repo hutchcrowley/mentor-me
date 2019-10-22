@@ -2,17 +2,21 @@ import React, { useState } from 'react';
 
 const Login = props => {
   return (
-    <div>
+    <div className="form">
       <form onSubmit="">
-        <input type="email" name="email" placeholder="Email" onChange="" />
+
+        <label className="label" htmlFor="email">Email</label>
+        <input className="input" type="email" name="email" placeholder="Email" onChange="" />
+        <label  className="label" htmlFor="password">Password</label>
         <input
+        className="input"
           type="password"
           name="password"
           placeholder="Password"
           value=""
           onChange=""
         />
-        <button type="submit" />
+        <button className="submit" type="submit" >Sign In</button>
       </form>
     </div>
   );
