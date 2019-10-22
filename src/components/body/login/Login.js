@@ -12,7 +12,7 @@ const Login = props => {
           value=""
           onChange=""
         />
-        <button type="submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
