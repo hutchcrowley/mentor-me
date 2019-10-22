@@ -9,6 +9,7 @@ const Login = props => {
   const handleSubmit = e => {
     e.preventDefault()
     props.login(payload)
+    props.history.push('/user-feed')
   }
   const handleClick = e => {
     e.preventDefault()

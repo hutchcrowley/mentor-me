@@ -22,7 +22,9 @@ export const FETCH_DATA_FAILED = 'FETCH_DATA_FAILED'
 
 
 export const login = (creds) => dispatch => {
+    window.localStorage.setItem('creds', JSON.stringify(creds))
     dispatch({ type: LOG_IN_START })
+    
     const token = window.localStorage.getItem('token')
     creds = {
         ...creds,
