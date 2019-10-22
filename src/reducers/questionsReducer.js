@@ -13,7 +13,7 @@
 // // REDUCER ---- state machine for getting data from the api
 // export const questionsReducer = (state = init, action) => {
 //     switch (action.type) {
-//         case FETCH_DATA_START:
+//         case FETCH_DATA_START:ya
 //             return {
 //                 ...state,
 //                 isFetching: true
