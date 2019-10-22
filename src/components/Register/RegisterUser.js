@@ -77,7 +77,7 @@ const RegisterUser = props => {
         <label className="label" htmlFor="isMentor">I am registering as mentor</label>
 
         <input type="checkbox" name="isMentor" onChange={handleMentor}></input>
-        <button type="submit" />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
