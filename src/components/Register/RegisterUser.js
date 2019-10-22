@@ -5,34 +5,33 @@ import { register } from "../../actions/index";
 
 const RegisterUser = props => {
   const [payload, setPayload] = useState({
-    firstName: "",
-    lastName: "",
+    firstname: "",
+    lastname: "",
     email: "",
-    password: "",
-    isMentor: false
+    password: ""
   });
   const handleMentor = e => {
-    let isActive = payload.isMentor;
-    setPayload({
-      ...payload,
-      isMentor: !isActive
-    });
-    console.log(`changing status master...  ${payload.isMentor.value}`);
+    // let isActive = payload.isMentor;
+    // setPayload({
+    //   ...payload,
+    //   isMentor: !isActive
+    // });
+    // console.log(`changing status master...  ${payload.isMentor.value}`);
   };
 
   const handleChange = e => {
     e.preventDefault();
     setPayload({
-      ...props.reg_user.state,
+      ...payload,
       [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = e => {
-    alert(JSON.stringify(payload));
-    console.log(JSON.stringify(payload));
     e.preventDefault();
     props.register(payload);
+    console.log('PL::', payload)
+    props.history.push('/signin')
   };
   return (
     <div>
@@ -41,9 +40,9 @@ const RegisterUser = props => {
         <input
         className="input"
           type="text"
-          name="firstName"
+          name="firstname"
           placeholder="First Name"
-          value={payload.firstName}
+          value={payload.firstname}
           onChange={handleChange}
         />
         {/* {console.log(props.reg_user)} */}
@@ -51,9 +50,9 @@ const RegisterUser = props => {
         <input
         className="input"
           type="text"
-          name="lastName"
+          name="lastname"
           placeholder="Last Name"
-          value={payload.lastName}
+          value={payload.lastname}
           onChange={handleChange}
         />
 

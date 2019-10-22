@@ -9,7 +9,9 @@ const Login = props => {
   const handleSubmit = e => {
     e.preventDefault()
     props.login(payload)
-    props.history.push('/user-feed')
+    setTimeout(()=>{
+      props.history.push('/user-feed')
+    },1000)
   }
   const handleClick = e => {
     e.preventDefault()

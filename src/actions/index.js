@@ -22,18 +22,12 @@ export const FETCH_DATA_FAILED = 'FETCH_DATA_FAILED'
 
 
 export const login = (creds) => dispatch => {
-    window.localStorage.setItem('creds', JSON.stringify(creds))
     dispatch({ type: LOG_IN_START })
-    
-    const token = window.localStorage.getItem('token')
-    creds = {
-        ...creds,
-        token: token
-    }
+
     axios
-        .post('http://localhost:5000/login', creds)
+        .post('http://localhost:5000/api/users/login', creds)
         .then(res => {
-            dispatch({ type: LOG_IN_SUCCESS, payload: res.data })
+            window.localStorage.setItem('token', res.data.token)
         })
         .catch(err => {
             dispatch({ type: LOG_IN_FAILED, payload: err })
@@ -43,10 +37,9 @@ export const login = (creds) => dispatch => {
 export const register = (payload) => dispatch => {
     dispatch({ type: REGISTER_START })
     axios
-        .post('http://localhost:5000/register', payload)
+        .post('http://localhost:5000/api/users/register', payload)
         .then(res => {
             dispatch({ type: REGISTER_SUCCESS })
-            window.localStorage.setItem('token', res.data.token)
         })
         .catch(err => {
             dispatch({ type: REGISTER_FAILED, payload: err })
