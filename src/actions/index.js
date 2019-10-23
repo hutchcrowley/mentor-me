@@ -34,14 +34,16 @@ export const login = (creds) => dispatch => {
         .catch(err => {
             dispatch({ type: LOG_IN_FAILED, payload: err })
         })
-}
-
-export const register = (payload) => dispatch => {
-    dispatch({ type: REGISTER_START })
-    axios
+    }
+    
+    export const register = (payload) => dispatch => {
+        dispatch({ type: REGISTER_START })
+        axios
         .post('http://localhost:5000/api/users/register', payload)
         .then(res => {
             dispatch({ type: REGISTER_SUCCESS })
+            console.log(res)
+            window.localStorage.setItem('token', res.data.token)
             //pass to state, not really needed because just loggin in
         })
         .catch(err => {
