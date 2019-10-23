@@ -10,14 +10,7 @@ const RegisterUser = props => {
     email: "",
     password: ""
   });
-  const handleMentor = e => {
-    // let isActive = payload.isMentor;
-    // setPayload({
-    //   ...payload,
-    //   isMentor: !isActive
-    // });
-    // console.log(`changing status master...  ${payload.isMentor.value}`);
-  };
+  
 
   const handleChange = e => {
     e.preventDefault();
@@ -26,19 +19,20 @@ const RegisterUser = props => {
       [e.target.name]: e.target.value
     });
   };
-
+  //REMEMBER ON LOGOUT TO CLEAR STORAGE... or SET TIMEOUT FOR 5600 and clear
   const handleSubmit = e => {
     e.preventDefault();
     props.register(payload);
-    console.log('PL::', payload)
-    props.history.push('/signin')
+    setTimeout(()=>{
+      props.history.push('/user-feed')
+    },1000)
   };
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
 
         <input
-        className="input"
+          className="input"
           type="text"
           name="firstname"
           placeholder="First Name"
@@ -48,7 +42,7 @@ const RegisterUser = props => {
         {/* {console.log(props.reg_user)} */}
 
         <input
-        className="input"
+          className="input"
           type="text"
           name="lastname"
           placeholder="Last Name"
@@ -57,7 +51,7 @@ const RegisterUser = props => {
         />
 
         <input
-        className="input"
+          className="input"
           type="email"
           name="email"
           placeholder="Email"
@@ -66,16 +60,13 @@ const RegisterUser = props => {
         />
 
         <input
-        className="input"
+          className="input"
           type="password"
           name="password"
           placeholder="Password"
           value={payload.password}
           onChange={handleChange}
         />
-        <label className="label" htmlFor="isMentor">I am registering as mentor</label>
-
-        <input type="checkbox" name="isMentor" onChange={handleMentor}></input>
         <button type="submit">Submit</button>
       </form>
     </div>
