@@ -27,7 +27,9 @@ export const login = (creds) => dispatch => {
     axios
         .post('http://localhost:5000/api/users/login', creds)
         .then(res => {
+            dispatch({ type: LOG_IN_SUCCESS })
             window.localStorage.setItem('token', res.data.token)
+            //pass to state, not really needed because just loggin in
         })
         .catch(err => {
             dispatch({ type: LOG_IN_FAILED, payload: err })
@@ -40,13 +42,14 @@ export const register = (payload) => dispatch => {
         .post('http://localhost:5000/api/users/register', payload)
         .then(res => {
             dispatch({ type: REGISTER_SUCCESS })
+            //pass to state, not really needed because just loggin in
         })
         .catch(err => {
             dispatch({ type: REGISTER_FAILED, payload: err })
         })
 }
 //QUESTION ACTION --- GET DATA FROM THE SERVER
-    //                         applyMiddleware(thunk)
+//                         applyMiddleware(thunk)
 // export const getQuestions = () => dispatch => {
 //     dispatch({ type: FETCH_DATA_START })
 //     axiosWithAuth()
@@ -58,11 +61,11 @@ export const register = (payload) => dispatch => {
 // }   AUSTIN -- 
 
 export const getQuestions = () => dispatch => {
-    dispatch({ type: FETCH_DATA_START})
+    dispatch({ type: FETCH_DATA_START })
     axiosWithAuth()
         .get('/api/questions')
         .then(res => {
-            dispatch({type: FETCH_DATA_SUCCESS, payload: res.data})
+            dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
         })
-        .catch(err => dispatch({type:FETCH_DATA_FAILED, payload: err}))
+        .catch(err => dispatch({ type: FETCH_DATA_FAILED, payload: err }))
 }
