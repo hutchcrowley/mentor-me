@@ -1,11 +1,21 @@
-import React from 'react'
-
-const Feed = props =>{
+import React, { useEffect } from 'react'
+import { connect } from 'react-redux'
+import { getQuestions } from '../../actions'
+const Feed = props => {
+    useEffect(() => {
+        props.getQuestions()
+    }, [])
     return (
         <div>
-            FEED ME HOMIE
+            {props.questions ? console.log(JSON.stringify(props.questions)) : ''}
         </div>
     )
 }
-
-export default Feed
+const mapStateToProp = (state) => {
+    return {
+        questions: state.quest.data
+    }
+}
+export default connect(mapStateToProp, {
+    getQuestions
+})(Feed)
