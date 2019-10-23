@@ -25,7 +25,7 @@ export const login = (creds) => dispatch => {
     dispatch({ type: LOG_IN_START })
 
     axios
-        .post('http://localhost:5000/api/users/login', creds)
+        .post('https://mentor-me-app-be.herokuapp.com/api/users/login', creds)
         .then(res => {
             dispatch({ type: LOG_IN_SUCCESS })
             window.localStorage.setItem('token', res.data.token)
@@ -39,7 +39,7 @@ export const login = (creds) => dispatch => {
     export const register = (payload) => dispatch => {
         dispatch({ type: REGISTER_START })
         axios
-        .post('http://localhost:5000/api/users/register', payload)
+        .post('https://mentor-me-app-be.herokuapp.com/api/users/register', payload)
         .then(res => {
             dispatch({ type: REGISTER_SUCCESS })
             console.log(res)
@@ -65,7 +65,7 @@ export const login = (creds) => dispatch => {
 export const getQuestions = () => dispatch => {
     dispatch({ type: FETCH_DATA_START })
     axiosWithAuth()
-        .get('/api/questions')
+        .get('/questions')
         .then(res => {
             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
         })
