@@ -7,6 +7,7 @@ import Login from './body/login/Login'
 import { Route } from 'react-router-dom'
 import PrivateRoute from '../utils/PrivateRoute'
 import Feed from './feed/Feed'
+import DummyRoute from './dummy/DummyRoute'
 
 const App = () => {
   return (
@@ -17,6 +18,7 @@ const App = () => {
       <Route path="/signup" component={RegisterUser} />
       <Route path="/signin" component={Login} />
       <PrivateRoute path='/user-feed' component={Feed}/>
+      <Route path='/dummy-route' component={DummyRoute} />
     </div>
   )
 }

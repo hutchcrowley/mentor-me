@@ -24,8 +24,11 @@ const RegisterUser = props => {
     e.preventDefault();
     props.register(payload);
     setTimeout(()=>{
+      props.history.push('/dummy-route')
+    }, 1000)
+    setTimeout(()=>{
       props.history.push('/user-feed')
-    },1000)
+    },2000)
   };
   return (
     <div>
