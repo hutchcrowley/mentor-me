@@ -5,7 +5,7 @@
 
 ## For the MVP Create:
 ```
-[] 1. An on-boarding process for an entrepreneur
+[✓] 1. An on-boarding process for an entrepreneur
 [] 2. On-boarding process for a volunteer experienced business owner
 [] 3. Ability to easily create and post a question (including title, question, tagged business type, and optional photos/files)
 [] 4. Ability to easily edit / delete a question
