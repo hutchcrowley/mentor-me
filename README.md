@@ -11,6 +11,9 @@
 [] 4. Ability to easily edit / delete a question
 [] 5. Ability for anyone to easily search / find posted questions
 [] 6. Ability to respond to a posted question via message
+
+
+ummmmm what ?
 [] 7. Use a notification API like Twilio (https://www.twilio.com/) or Growl (http://growl.info/) to allow volunteers to be notified when a question is posted in their business type.
 
 ```
