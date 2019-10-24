@@ -1,46 +1,66 @@
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux'
-import { getQuestions } from '../../actions'
+import {getQuestions, editQuestion}from '../../actions'
 const QuestionEdit = props => {
+  const { match } = props
+  const [payload, setPayload] = useState({
+    id: match.params.id,
+    topic: '',
+    content: '',
+    updated_at: Date.now(),
+    user_id:0
+  })
   const [questions, setTopics] = useState([]);
   useEffect(() => {
-    console.log('1')
     props.getQuestions()
     setTopics(props.questions)
-  }, [])
-
-  const arr = questions.map(question => {
-    return question.topic
-  })
-  const unique = (val, index, self) => {
-    return self.indexOf(val) === index
+    const matched_question = questions.filter(question => question.id == match.params.id)
+    setPayload({...payload,
+      topic: matched_question.length > 0 ? matched_question[0].topic : '',
+      content:matched_question.length > 0 ? matched_question[0].content : ''
+    })
+  }, [questions])
+  
+  
+  
+  const handleChange = (e) => {
+    e.preventDefault()
+    setPayload({
+      ...payload,
+      [e.target.name]: e.target.value
+    })
   }
-  // console.log('topics', questions)
-  const _quesitions = arr.filter(unique)
-  // console.log('_topics', arr)
-
+  const submit = (e) => {
+    e.preventDefault()
+    console.log(payload)
+    props.editQuestion(payload)
+    // props.getQuestions()
+    props.history.push('/user-feed')
+  }
   return (
-    <form>
+    <form onSubmit={submit}>
       <label htmlFor="topic">Topic</label>
-      <select defaultValue={props.match.params.topic}>
-        {_quesitions.map(
-          question => {
-            // return console.log(question.topic)
-            return <option value={question}>{question}</option>
-          }
-        )
-        }
-      </select>
+      <input
+        name='topic'
+        value={payload.topic}
+        onChange={handleChange}>
+      </input>
       <label htmlFor="questions">Questions</label>
-      <input type="text" placeholder="type your question here" />
+      <input
+        name='content'
+        value={payload.content}
+        onChange={handleChange}
+      />
+      <button>finish</button>
     </form>
   );
 };
 const mapStateToProps = (state) => {
-  return {
+  return{
     questions: state.quest.data
   }
 }
-export default connect(mapStateToProps, {
-  getQuestions
+export default connect(mapStateToProps,{
+  getQuestions,
+  editQuestion
 })(QuestionEdit);

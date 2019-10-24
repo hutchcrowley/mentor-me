@@ -112,13 +112,13 @@ export const addQuestion = (payload) => dispatch => {
         })
 }
 
-export const editQuestion= (payload)=>dispatch=>{
+export const editQuestion = (payload)=>dispatch=>{
     dispatch({type:EDIT_QUESTION_START})
     axiosWithAuth()
-        .put('/questions', payload)
+        .put(`/questions/${payload.id}`, payload)
         .then(res => {
-            console.log(res)
-            dispatch({ type: EDIT_QUESTION_SUCCESS, payload: res.data })
+            console.log(res.data)
+            dispatch({ type: EDIT_QUESTION_SUCCESS, payload: res })
         })
         .catch(err => {
             dispatch({ type: EDIT_QUESTION_FAILED, payload: err })
