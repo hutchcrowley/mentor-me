@@ -20,6 +20,9 @@ export const FETCH_DATA_START = 'FETCH_DATA_START'
 export const FETCH_DATA_SUCCESS = 'FETCH_DATA_SUCCESS'
 export const FETCH_DATA_FAILED = 'FETCH_DATA_FAILED'
 
+export const DELETE_DATA_START = 'DELETE_DATA_START'
+export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS'
+export const DELETE_DATA_FAILED = 'DELETE_DATA_FAILED'
 
 export const login = (creds) => dispatch => {
     dispatch({ type: LOG_IN_START })
@@ -70,4 +73,19 @@ export const getQuestions = () => dispatch => {
             dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
         })
         .catch(err => dispatch({ type: FETCH_DATA_FAILED, payload: err }))
+}
+
+export const delQuestion = () => dispatch => {
+    dispatch({ type: DELETE_DATA_START })
+    axiosWithAuth()
+        .delete('/questions:id')
+        .then(res => {
+            dispatch({ type: DELETE_DATA_SUCCESS})
+            console.log('question deleted', res)
+        })
+        .catch(err => {
+            dispatch({ type: DELETE_DATA_FAILED})
+            console.log(err)
+        })
+
 }
