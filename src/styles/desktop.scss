@@ -1,10 +1,9 @@
 @media only screen and (min-width: 501px) {
   body {
     height: 650px;
-    background: url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1909&q=80(162 kB)
+    background: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1909&q=80(162 kB)
  https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1909&q=80
- ")
-      no-repeat;
+ ');
     background-size: 100% 100%;
     border: 3px solid black;
   }
@@ -61,7 +60,7 @@
     border: 1px solid grey;
     border-radius: 40px;
     padding: 15px;
-    margin: 20px 0px 0px 20px;
+    margin: 20px;
     width: 25%;
     text-decoration: none;
     color: #000;
