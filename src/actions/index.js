@@ -83,7 +83,7 @@ export const getQuestions = () => dispatch => {
 export const delQuestion = (id) => dispatch => {
     dispatch({ type: DELETE_DATA_START })
     axiosWithAuth()
-        .delete(`/questions/:${id}`)
+        .delete(`/questions/${id}`)
         .then(res => {
             dispatch({ type: DELETE_DATA_SUCCESS})
             console.log('question deleted', res)
