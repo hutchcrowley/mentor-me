@@ -9,7 +9,7 @@ const Feed = props => {
     props.getQuestions();
   }, []);
   return (
-    <div>
+    <div className="feed-div">
       <Link className="submit" to="/user-feed/add">
         Add New Question
       </Link>
