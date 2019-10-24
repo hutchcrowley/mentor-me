@@ -28,6 +28,10 @@ export const ADD_QUESTION_START = 'ADD_QUESTION_START'
 export const ADD_QUESTION_SUCCESS = 'ADD_QUESTION_SUCCESS'
 export const ADD_QUESTION_FAILED = 'ADD_QUESTION_FAILED'
 
+export const EDIT_QUESTION_START = 'EDIT_DATA_START'
+export const EDIT_QUESTION_SUCCESS = 'EDIT_DATA_SUCCESS'
+export const EDIT_QUESTION_FAILED = 'EDIT_DATA_FAILED'
+
 export const login = (creds) => dispatch => {
     dispatch({ type: LOG_IN_START })
 
@@ -105,6 +109,19 @@ export const addQuestion = (payload) => dispatch => {
         })
         .catch(err => {
             dispatch({ type: ADD_QUESTION_FAILED, payload: err })
+        })
+}
+
+export const editQuestion= (payload)=>dispatch=>{
+    dispatch({type:EDIT_QUESTION_START})
+    axiosWithAuth()
+        .put('/questions', payload)
+        .then(res => {
+            console.log(res)
+            dispatch({ type: EDIT_QUESTION_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: EDIT_QUESTION_FAILED, payload: err })
         })
 }
 
