@@ -10,12 +10,16 @@ const Feed = props => {
   }, []);
   return (
     <div>
-      <Link to="/user-feed/add">Add New Question</Link>
-      {props.questions
-        ? props.questions.map(question => (
-            <QuestionCard key={question.id} question={question} />
-          ))
-        : ''}
+      <Link className="submit" to="/user-feed/add">
+        Add New Question
+      </Link>
+      <div className="flex-row card-container">
+        {props.questions
+          ? props.questions.map(question => (
+              <QuestionCard key={question.id} question={question} />
+            ))
+          : ''}
+      </div>
     </div>
   );
 };
