@@ -9,13 +9,17 @@ const Feed = props => {
     props.getQuestions();
   }, []);
   return (
-    <div>
-      <Link to="/user-feed/add">Add New Question</Link>
-      {props.questions
-        ? props.questions.map(question => (
-            <QuestionCard key={question.id} question={question} />
-          ))
-        : ''}
+    <div className="feed-div">
+      <Link className="submit" to="/user-feed/add">
+        Add New Question
+      </Link>
+      <div className="flex-row card-container">
+        {props.questions
+          ? props.questions.map(question => (
+              <QuestionCard key={question.id} question={question} />
+            ))
+          : ''}
+      </div>
     </div>
   );
 };
@@ -24,6 +28,7 @@ const mapStateToProp = state => {
     questions: state.quest.data
   };
 };
+
 export default connect(
   mapStateToProp,
   {

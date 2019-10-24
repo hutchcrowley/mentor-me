@@ -14,14 +14,13 @@ const App = () => {
   return (
     <div>
       <Header />
-
       <Route exact path="/" component={Landing} />
       <Route path="/signup" component={RegisterUser} />
       <Route path="/signin" component={Login} />
-      <PrivateRoute path="/user-feed" component={Feed} />
+      <PrivateRoute exact path="/user-feed" component={Feed} />
       <Route path="/dummy-route" component={DummyRoute} />
-      <PrivateRoute path="/user-feed/add" component={QuestionAdd} />
-      <PrivateRoute path="/user-feed/edit" component={QuestionEdit} />
+      <PrivateRoute exact path="/user-feed/add" component={QuestionAdd} />
+      <PrivateRoute exact path="/user-feed/edit" component={QuestionEdit} />
     </div>
   );
 };

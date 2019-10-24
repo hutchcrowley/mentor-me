@@ -35,15 +35,16 @@
 //     }
 // } -- AUSTIN
 
-import {FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILED} from '../actions';
+import {FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILED, ADD_QUESTION_START, ADD_QUESTION_SUCCESS, ADD_QUESTION_FAILED} from '../actions';
 
-const stat = {
+const init = {
     data: [],
     isFetching: false,
+    isAdding:false,
     err: ''
 }
 
-export const questionsReducer = (state={stat}, action) => {
+export const questionsReducer = (state=init, action) => {
     switch(action.type) {
         case FETCH_DATA_START:
             return{
@@ -62,6 +63,23 @@ export const questionsReducer = (state={stat}, action) => {
                 isFetching: false,
                 err: action.payload
             }
+            case ADD_QUESTION_START:
+                return{
+                    ...state,
+                    isAdding: true
+                }
+            case ADD_QUESTION_SUCCESS:
+                return{
+                    ...state,
+                    isAdding: false,
+                    data: [...state.data,action.payload]
+                }
+            case ADD_QUESTION_FAILED:
+                return{
+                    ...state,
+                    isAdding: false,
+                    err: action.payload
+                }
         default:
             return state
     }

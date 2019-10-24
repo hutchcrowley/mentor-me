@@ -24,6 +24,11 @@ export const DELETE_DATA_START = 'DELETE_DATA_START'
 export const DELETE_DATA_SUCCESS = 'DELETE_DATA_SUCCESS'
 export const DELETE_DATA_FAILED = 'DELETE_DATA_FAILED'
 
+export const ADD_QUESTION_START = 'ADD_QUESTION_START'
+export const ADD_QUESTION_SUCCESS = 'ADD_QUESTION_SUCCESS'
+export const ADD_QUESTION_FAILED = 'ADD_QUESTION_FAILED'
+
+
 export const login = (creds) => dispatch => {
     dispatch({ type: LOG_IN_START })
 
@@ -37,11 +42,11 @@ export const login = (creds) => dispatch => {
         .catch(err => {
             dispatch({ type: LOG_IN_FAILED, payload: err })
         })
-    }
-    
-    export const register = (payload) => dispatch => {
-        dispatch({ type: REGISTER_START })
-        axios
+}
+
+export const register = (payload) => dispatch => {
+    dispatch({ type: REGISTER_START })
+    axios
         .post('https://mentor-me-app-be.herokuapp.com/api/users/register', payload)
         .then(res => {
             dispatch({ type: REGISTER_SUCCESS })
@@ -75,6 +80,7 @@ export const getQuestions = () => dispatch => {
         .catch(err => dispatch({ type: FETCH_DATA_FAILED, payload: err }))
 }
 
+
 export const delQuestion = () => dispatch => {
     dispatch({ type: DELETE_DATA_START })
     axiosWithAuth()
@@ -89,3 +95,16 @@ export const delQuestion = () => dispatch => {
         })
 
 }
+
+export const addQuestion = (payload) => dispatch => {
+    dispatch({ type: ADD_QUESTION_START })
+    axiosWithAuth()
+        .post('/questions', payload)
+        .then(res => {
+            dispatch({ type: ADD_QUESTION_SUCCESS, payload: res.data })
+        })
+        .catch(err => {
+            dispatch({ type: ADD_QUESTION_FAILED, payload: err })
+        })
+}
+

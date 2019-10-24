@@ -1,29 +1,30 @@
-import React, { useState } from 'react'
-import { connect } from 'react-redux'
-import { login } from '../../../actions'
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import { login } from "../../../actions";
 const Login = props => {
   const [payload, setPayload] = useState({
-    email: '',
-    password: ''
-  })
+    email: "",
+    password: ""
+  });
   const handleSubmit = e => {
-    e.preventDefault()
-    props.login(payload)
-    setTimeout(()=>{
-      props.history.push('/user-feed')
-    },1000)
-  }
+    e.preventDefault();
+    props.login(payload);
+    setTimeout(() => {
+      props.history.push("/user-feed");
+    }, 1000);
+  };
   const handleClick = e => {
-    e.preventDefault()
+    e.preventDefault();
     setPayload({
       ...payload,
       [e.target.name]: e.target.value
-    })
-  }
+    });
+  };
   return (
     <div>
-      <form onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleSubmit}>
         <input
+          className="input"
           type="email"
           name="email"
           placeholder="Email"
@@ -31,7 +32,7 @@ const Login = props => {
           onChange={handleClick}
         />
         <input
-        className="input"
+          className="input"
           type="password"
           name="password"
           placeholder="Password"
@@ -41,14 +42,17 @@ const Login = props => {
         <button type="submit">Submit</button>
       </form>
     </div>
-  )
-}
+  );
+};
 
 const mapStateToProps = state => {
   return {
     log: state.log
+  };
+};
+export default connect(
+  mapStateToProps,
+  {
+    login
   }
-}
-export default connect(mapStateToProps, {
-  login
-})(Login)
+)(Login);
