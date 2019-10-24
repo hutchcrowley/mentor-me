@@ -28,6 +28,7 @@ const mapStateToProp = state => {
     questions: state.quest.data
   };
 };
+
 export default connect(
   mapStateToProp,
   {
