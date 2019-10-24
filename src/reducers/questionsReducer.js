@@ -37,13 +37,13 @@
 
 import {FETCH_DATA_START, FETCH_DATA_SUCCESS, FETCH_DATA_FAILED} from '../actions';
 
-const stat = {
+const init = {
     data: [],
     isFetching: false,
     err: ''
 }
 
-export const questionsReducer = (state={stat}, action) => {
+export const questionsReducer = (state=init, action) => {
     switch(action.type) {
         case FETCH_DATA_START:
             return{

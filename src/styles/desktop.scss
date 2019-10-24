@@ -31,6 +31,7 @@
     font-size: 3em;
     text-shadow: 2px 2px 5px;
     transition: width 2s, height 4s;
+    box-shadow: 5px 10px 5px 0px transparent;
 
     &:hover {
       height: 65px;
