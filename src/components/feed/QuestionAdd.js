@@ -40,7 +40,8 @@ const QuestionAdd = props => {
   const submit = (e) => {
     e.preventDefault()
     props.addQuestion(payload)
-    console.log(payload)
+    props.history.push('/user-feed')
+    // console.log(payload)
   }
   return (
     <form onSubmit={submit}>
