@@ -20,7 +20,9 @@ const App = () => {
       <PrivateRoute exact path="/user-feed" component={Feed} />
       <Route path="/dummy-route" component={DummyRoute} />
       <PrivateRoute exact path="/user-feed/add" component={QuestionAdd} />
-      <PrivateRoute exact path="/user-feed/edit" component={QuestionEdit} />
+      <Route exact path="/user-feed/edit/:id"
+        render={(props) => <QuestionEdit {...props}  />} />
+
     </div>
   );
 };

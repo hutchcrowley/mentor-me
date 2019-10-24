@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const Feed = props => {
   useEffect(() => {
     props.getQuestions();
-  }, []);
+  }, [props.questions]);
   const handleDelete = e =>{
     e.preventDefault()
     props.delQuestion(e.target.id)

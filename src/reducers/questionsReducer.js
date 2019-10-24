@@ -51,6 +51,7 @@ const init = {
     data: [],
     isFetching: false,
     isAdding: false,
+    isEditing:false,
     err: ''
 }
 
@@ -98,6 +99,7 @@ export const questionsReducer = (state = init, action) => {
         case EDIT_QUESTION_SUCCESS:
             return {
                 ...state,
+                data:[action.payload],
                 isEditing: false
             }
         case EDIT_QUESTION_FAILED:

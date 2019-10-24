@@ -11,10 +11,9 @@ const QuestionAdd = props => {
   })
   const [questions, setTopics] = useState([]);
   useEffect(() => {
-    console.log('1')
     props.getQuestions()
     setTopics(props.questions)
-  }, [])
+  }, [questions])
 
   const arr = questions.map(question => {
     return question.topic
