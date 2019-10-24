@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const QuestionCard = props => {
   console.log(props.question);
@@ -7,6 +8,7 @@ const QuestionCard = props => {
     <div key={props.id}>
       <h2>{props.question.content}</h2>
       <p>{props.question.topic}</p>
+      <Link to="/user-feed/edit">Edit</Link>
     </div>
   );
 };
