@@ -8,6 +8,7 @@ const Login = props => {
   });
   const handleSubmit = e => {
     e.preventDefault();
+    window.localStorage.clear()
     props.login(payload);
     setTimeout(() => {
       props.history.push("/user-feed");

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { getQuestions } from '../../actions';
+import { getQuestions,delQuestion } from '../../actions';
 import QuestionCard from './QuestionCard';
 import { Link } from 'react-router-dom';
 
@@ -8,8 +8,10 @@ const Feed = props => {
   useEffect(() => {
     props.getQuestions();
   }, []);
-  const handleDelete = (e, id)=>{
-
+  const handleDelete = e =>{
+    e.preventDefault()
+    props.delQuestion(e.target.id)
+    props.getQuestions()
   }
   return (
     <div className="feed-div">
@@ -35,6 +37,7 @@ const mapStateToProp = state => {
 export default connect(
   mapStateToProp,
   {
-    getQuestions
+    getQuestions,
+    delQuestion
   }
 )(Feed);
