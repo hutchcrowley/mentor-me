@@ -28,7 +28,6 @@ export const ADD_QUESTION_START = 'ADD_QUESTION_START'
 export const ADD_QUESTION_SUCCESS = 'ADD_QUESTION_SUCCESS'
 export const ADD_QUESTION_FAILED = 'ADD_QUESTION_FAILED'
 
-
 export const login = (creds) => dispatch => {
     dispatch({ type: LOG_IN_START })
 
@@ -81,10 +80,10 @@ export const getQuestions = () => dispatch => {
 }
 
 
-export const delQuestion = () => dispatch => {
+export const delQuestion = (id) => dispatch => {
     dispatch({ type: DELETE_DATA_START })
     axiosWithAuth()
-        .delete('/questions:id')
+        .delete(`/questions/:${id}`)
         .then(res => {
             dispatch({ type: DELETE_DATA_SUCCESS})
             console.log('question deleted', res)
@@ -101,6 +100,7 @@ export const addQuestion = (payload) => dispatch => {
     axiosWithAuth()
         .post('/questions', payload)
         .then(res => {
+            console.log(res)
             dispatch({ type: ADD_QUESTION_SUCCESS, payload: res.data })
         })
         .catch(err => {
