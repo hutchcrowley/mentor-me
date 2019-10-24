@@ -8,6 +8,9 @@ const Feed = props => {
   useEffect(() => {
     props.getQuestions();
   }, []);
+  const handleDelete = (e, id)=>{
+
+  }
   return (
     <div className="feed-div">
       <Link className="submit" to="/user-feed/add">
@@ -16,7 +19,7 @@ const Feed = props => {
       <div className="flex-row card-container">
         {props.questions
           ? props.questions.map(question => (
-              <QuestionCard key={question.id} question={question} />
+              <QuestionCard key={question.id} question={question} handleDelete={handleDelete} />
             ))
           : ''}
       </div>
