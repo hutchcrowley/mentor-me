@@ -3,26 +3,29 @@
     height: 650px;
     background: white;
     background-size: 100% 100%;
+    background: url("https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1909&q=80(162 kB");
+    background-position: center;
+    background-size: cover;
   }
   .logo {
-    width: 15%;
+    width: 35%;
     padding: 10px;
     background-color: white;
-    border-radius: 20px;
+    border-radius: 10px;
     box-shadow: 10px 10px 5px grey;
   }
   .button {
     background-color: white;
     border: 1px solid grey;
     border-radius: 40px;
-    padding: 10px;
+    padding: 15px;
     margin: 10px auto;
-    width: 25%;
+    width: 50%;
     text-decoration: none;
     color: #000;
     text-align: center;
     font-style: bold;
-    font-size: 1rem;
+    font-size: 1.5rem;
     text-shadow: 2px 2px 5px;
     transition: width 2s, height 4s;
     &:hover {
@@ -34,13 +37,13 @@
     }
   }
   .user {
-    width: 18%;
-    margin-left: 40%;
+    width: 55%;
+    margin: 10vh;
   }
   .form {
-    width: 78vw;
-    padding: 10vw;
-    margin: 0px;
+    width: 70%;
+    padding: 50px 30px 90px 30px;
+    margin: 35% auto;
     border: 1px solid black;
     border-radius: 45px;
     box-shadow: 5px 5px 5px black;
@@ -55,16 +58,18 @@
     background-color: white;
     border: 1px solid grey;
     border-radius: 20px;
-    width: 50vw;
+    padding: 10px;
+    margin: auto;
+    width: 75%;
     text-decoration: none;
     color: #000;
     font-style: bold;
-    font-size: 2em;
+    font-size: 1.5em;
     text-shadow: 2px 2px 5px;
     transition: width 2s, height 4s;
     &:hover {
       height: 65px;
-      width: 60vw;
+      width: 80%;
       transition: width 0.5s, height 1s;
       box-shadow: 5px 10px 5px 0px black;
       text-shadow: 2px 2px 5px black;
@@ -77,6 +82,7 @@
     background-color: rgb(7, 7, 7);
     color: white;
     padding: 20px;
+    margin: 10px 0px;
   }
 
   .flex-row {
