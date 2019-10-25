@@ -24,6 +24,7 @@ const App = () => {
       <PrivateRoute exact path="/user-feed/add" component={QuestionAdd} />
       <Route exact path="/user-feed/edit/:id"
         render={(props) => <QuestionEdit {...props}  />} />
+      <PrivateRoute path='/user-feed/post/:id' component={/*SuperAmazingComponent DON'T FORGET THE FUCKING ROUTE IN THE SEARCH SUBMIT*/} />
       
 
     </div>
