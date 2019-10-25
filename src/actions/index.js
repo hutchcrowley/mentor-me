@@ -1,5 +1,6 @@
 import axios from 'axios'
 import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { tsPropertySignature } from '@babel/types'
 
 //#region MACROS
 export const LOG_IN_START = 'LOG_IN_START'
@@ -125,3 +126,14 @@ export const editQuestion = (payload)=>dispatch=>{
         })
 }
 
+export const getQuestionId = (payload) => dispatch => {
+    dispatch({ type: FETCH_DATA_START })
+    axiosWithAuth()
+        .get(`/questions/${payload.id}`, payload)
+        .then(res => {
+            dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
+            console.log('SUCCESS')
+            // props.history.push()
+        })
+        .catch(err => dispatch({ type: FETCH_DATA_FAILED, payload: err }))
+}
