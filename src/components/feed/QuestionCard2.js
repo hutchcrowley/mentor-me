@@ -12,18 +12,17 @@ const QuestionCard2 = props => {
     const [option, setOption] = useState({value: 'Programming'})
 
     const [payload, setPayload] = useState({
-        id: props.question.id,
+        id: '',
         topic: option.value,
         content: '',
         updated_at: Date.now(),
         user_id:0
     })
 
-
-    console.log(payload.id,'yo')
-
     const handleChange = e => {
+        
         setPayload({
+            if(){},
             ...payload,
             [e.target.name]: e.target.value
         })
@@ -35,21 +34,22 @@ const QuestionCard2 = props => {
         window.location.reload()
 
     }
-    const toggleEdit = () => {
+    const toggleEdit = (e) => {
         setCanEdit(true)
         setCanAdd(false)
         
         setPayload({
-            [payload.id]: props.question.id
+            ...payload,
+            id: props.question.id
         })
-        console.log(payload,'hi')
     }
-    const toggleAdd = () => {
+    const toggleAdd = (e) => {
         setCanAdd(true)
         setCanEdit(false)
         
         setPayload({
-            [payload.id]: 1000
+            ...payload,
+            id: 1000
         })
         console.log(payload,'suh')
     }
@@ -59,18 +59,12 @@ const QuestionCard2 = props => {
         
         console.log(payload)
 
-        // setPayload({
-        //     ...payload,
-        //     [payload.id]: 1000
-        // })
-        // props.addQuestion(payload)
-        // setTimeout(() => {
-        //     console.log(payload)
-        // }, 2000)
+        props.addQuestion(payload)
+       
 
         
-        // setTimeout(() => (window.location = 'https://mentor-me.xxsadpandaxx.now.sh/user-feed'), 3000)
-        // alert('Redirection to questions')
+        setTimeout(() => (window.location = 'https://mentor-me.xxsadpandaxx.now.sh/user-feed'), 3000)
+        alert('Redirection to questions')
     }
 
     const changeOption = e => {
@@ -151,15 +145,7 @@ const QuestionCard2 = props => {
                         value={payload.content}
                         name='content'
                         placeholder='Type question'
-                        onclick={() => {
-                            setPayload({
-                                ...payload,
-                                [payload.id]: 1000
-                            
-                            })
-                        }}
-                        />
-                    
+                    />                    
                     <button >Submit</button>
                 </form>
             </div>
