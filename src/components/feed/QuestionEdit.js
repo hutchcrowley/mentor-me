@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from 'react-redux'
 import {getQuestions, editQuestion}from '../../actions'
+
 const QuestionEdit = props => {
+  console.log(props)
+
   const { match } = props
   const [payload, setPayload] = useState({
     id: match.params.id,
@@ -11,6 +14,7 @@ const QuestionEdit = props => {
     user_id:0
   })
   const [questions, setTopics] = useState([]);
+
   useEffect(() => {
     props.getQuestions()
     setTopics(props.questions)
@@ -21,8 +25,6 @@ const QuestionEdit = props => {
     })
   }, [questions])
   
-  
-  
   const handleChange = (e) => {
     e.preventDefault()
     setPayload({
@@ -30,6 +32,7 @@ const QuestionEdit = props => {
       [e.target.name]: e.target.value
     })
   }
+
   const submit = (e) => {
     e.preventDefault()
     console.log(payload)

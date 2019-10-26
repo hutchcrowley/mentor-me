@@ -10,10 +10,15 @@ import Feed from "./feed/Feed";
 import DummyRoute from "./dummy/DummyRoute";
 import QuestionAdd from "./feed/QuestionAdd";
 import QuestionEdit from "./feed/QuestionEdit";
+import QuestionSearch from './feed/QuestionSearch'
+import SingleQuestCard from "./feed/SingleQuestCard";
+
+
 const App = () => {
   return (
     <div>
       <Header />
+    <PrivateRoute exact path='/user-feed' component={QuestionSearch} />
       <Route exact path="/" component={Landing} />
       <Route path="/signup" component={RegisterUser} />
       <Route path="/signin" component={Login} />
@@ -22,6 +27,8 @@ const App = () => {
       <PrivateRoute exact path="/user-feed/add" component={QuestionAdd} />
       <Route exact path="/user-feed/edit/:id"
         render={(props) => <QuestionEdit {...props}  />} />
+      <Route exact path='/user-feed/post/:id' render={(props) => <SingleQuestCard {...props} />} />
+      
 
     </div>
   );

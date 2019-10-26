@@ -5,9 +5,11 @@ import QuestionCard from './QuestionCard';
 import { Link } from 'react-router-dom';
 
 const Feed = props => {
+  console.log(props)
+
   useEffect(() => {
     props.getQuestions();
-  }, [props.questions]);
+  }, []);
   const handleDelete = e =>{
     e.preventDefault()
     props.delQuestion(e.target.id)
