@@ -125,15 +125,3 @@ export const editQuestion = (payload)=>dispatch=>{
             dispatch({ type: EDIT_QUESTION_FAILED, payload: err })
         })
 }
-
-export const getQuestionId = (payload) => dispatch => {
-    dispatch({ type: FETCH_DATA_START })
-    axiosWithAuth()
-        .get(`/questions/${payload.id}`, payload)
-        .then(res => {
-            dispatch({ type: FETCH_DATA_SUCCESS, payload: res.data })
-            console.log('SUCCESS')
-            // props.history.push()
-        })
-        .catch(err => dispatch({ type: FETCH_DATA_FAILED, payload: err }))
-}
