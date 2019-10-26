@@ -1,16 +1,15 @@
-import React, { useState } from "react";
-import axiosWithAuth from "../../utils/axiosWithAuth";
-import { connect } from "react-redux";
-import { register } from "../../actions/index";
+import React, { useState } from 'react';
+import axiosWithAuth from '../../utils/axiosWithAuth';
+import { connect } from 'react-redux';
+import { register } from '../../actions/index';
 
 const RegisterUser = props => {
   const [payload, setPayload] = useState({
-    firstname: "",
-    lastname: "",
-    email: "",
-    password: ""
+    firstname: '',
+    lastname: '',
+    email: '',
+    password: ''
   });
-  
 
   const handleChange = e => {
     e.preventDefault();
@@ -23,17 +22,16 @@ const RegisterUser = props => {
   const handleSubmit = e => {
     e.preventDefault();
     props.register(payload);
-    setTimeout(()=>{
-      props.history.push('/dummy-route')
-    }, 1000)
-    setTimeout(()=>{
-      props.history.push('/user-feed')
-    },2000)
+    setTimeout(() => {
+      props.history.push('/dummy-route');
+    }, 1000);
+    setTimeout(() => {
+      props.history.push('/user-feed');
+    }, 2000);
   };
   return (
     <div>
       <form className="form" onSubmit={handleSubmit}>
-
         <input
           className="input"
           type="text"
@@ -70,7 +68,9 @@ const RegisterUser = props => {
           value={payload.password}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button className="submit" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

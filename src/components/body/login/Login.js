@@ -1,17 +1,17 @@
-import React, { useState } from "react";
-import { connect } from "react-redux";
-import { login } from "../../../actions";
+import React, { useState } from 'react';
+import { connect } from 'react-redux';
+import { login } from '../../../actions';
 const Login = props => {
   const [payload, setPayload] = useState({
-    email: "",
-    password: ""
+    email: '',
+    password: ''
   });
   const handleSubmit = e => {
     e.preventDefault();
-    window.localStorage.clear()
+    window.localStorage.clear();
     props.login(payload);
     setTimeout(() => {
-      props.history.push("/user-feed");
+      props.history.push('/user-feed');
     }, 1000);
   };
   const handleClick = e => {
@@ -40,7 +40,9 @@ const Login = props => {
           value={payload.password}
           onChange={handleClick}
         />
-        <button type="submit">Submit</button>
+        <button className="submit" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
