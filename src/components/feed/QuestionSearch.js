@@ -6,15 +6,6 @@ import {axiosWithAuth} from '../../utils/axiosWithAuth'
 const QuestionSearch = props => {
     const [id, setId] = useState({search: ''})
     const [idArray, setIdArray] = useState()
-    const {match} = props
-    const [payload, setPayload] = useState({
-        id: match.params.id,
-        topic: '',
-        content: '',
-        updated_at: Date.now(),
-        user_id: 0
-    })
-    
 
     useEffect(() => {
         axiosWithAuth()
@@ -39,7 +30,7 @@ const QuestionSearch = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.history.push(`/user-feed/post/${props.question.id}`)
+        props.history.push(`/user-feed/post/${id.search}`)
     }
     return (
         <>
